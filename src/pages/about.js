@@ -8,7 +8,7 @@ const AboutPage = ({ data, location }) =>
     return (
         <Layout location={location} title={siteTitle}>
             <main>
-                <h2>The Photographers</h2>
+                <h2>{title}</h2>
                 <p>Those special times in our lives we want captured with a flash .</p>
                 <p>From newborns, first holy communions  family  shoots, weddings  parties .. You name it.. We are the ladies to get those special moments &amp; memories  for you! </p>
                 <p>Our reviews speak for us </p>

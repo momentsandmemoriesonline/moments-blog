@@ -6,7 +6,8 @@ export default function Home({ data, location }) {
   return (
     <Layout location='' title={siteTitle}>
         <main>
-            <h1>What a world.</h1>
+            {title}
+            {body}
         </main>
     </Layout>
   )
