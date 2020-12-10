@@ -25,5 +25,18 @@ export const pageQuery = graphql`
         title
       }
     }
+    allMarkdownRemark(filter:{frontmatter:{templateKey:{eq:"contact-page"}}}) {
+      edges {
+      
+        node {
+          id,
+          frontmatter{
+            templateKey,
+            title
+          }
+          html
+        }
+      }
+    }
   }
 `
