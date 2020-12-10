@@ -6,7 +6,7 @@ Those special times in our lives we want captured with a flash .
 
 From newborns, first holy communions family shoots, weddings parties .. You name it.. We are the ladies to get those special moments & memories for you!
 
-Our reviews speak for us
+Our reviews speak for us.
 
 find us on FaceBook: <https://www.facebook.com/momentsandmemoriesbyDandF/>
 
