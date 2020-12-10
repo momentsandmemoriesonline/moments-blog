@@ -1,4 +1,5 @@
 ---
+templateKey: contact-page
 title: Contact Us
 ---
  Unit 3 Templemore Business Park, Northland Road, BT48 OLD\
