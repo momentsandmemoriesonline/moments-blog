@@ -48,7 +48,8 @@ export const aboutPageQuery = graphql`
           id,
           frontmatter{
             templateKey,
-            title
+            title,
+            body
           }
         }
       }
