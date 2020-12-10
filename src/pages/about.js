@@ -9,7 +9,8 @@ const AboutPage = ({ data, location }) =>
         <Layout location={location} title={siteTitle}>
             <main>
                 <h2>{data.allMarkdownRemark.edges[0].node.frontmatter.title}</h2>
-                {data.allMarkdownRemark.edges[0].node.html}
+                <div dangerouslySetInnerHTML={{ __html: data.allMarkdownRemark.edges[0].node.html}} />
+
                 <div>
                     <div>
                         <h3>Donna</h3>

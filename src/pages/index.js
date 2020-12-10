@@ -7,7 +7,7 @@ const HomePage = ({ data, location }) => {
     <Layout location='' title={siteTitle}>
         <main>
             <h1>{data.allMarkdownRemark.edges[0].node.frontmatter.title}</h1>
-            {data.allMarkdownRemark.edges[0].node.html}
+            <div dangerouslySetInnerHTML={{ __html: data.allMarkdownRemark.edges[0].node.html}} />
         </main>
     </Layout>
   )
