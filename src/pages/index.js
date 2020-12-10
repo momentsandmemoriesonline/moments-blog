@@ -29,9 +29,9 @@ export const homePageQuery = graphql`
           id,
           frontmatter{
             templateKey,
-            title,
-            body
-          }
+            title
+          },
+          html
         }
       }
     }
