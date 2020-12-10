@@ -9,8 +9,8 @@ const ContactPage = ({ data, location }) => {
         
         <Layout location={location} title={siteTitle}>
             <main>
-                <h1>contact</h1>
-                <p>Welcome to my Gatsby site.</p>
+                <h1>{data.allMarkdownRemark.edges[0].node.frontmatter.title}</h1>
+                <div dangerouslySetInnerHTML={{ __html: data.allMarkdownRemark.edges[0].node.html}} />
             </main>
         </Layout>
 
