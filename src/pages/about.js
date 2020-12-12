@@ -14,11 +14,11 @@ const AboutPage = ({ data, location }) =>
                 <div>
                     <div>
                         <h3>Donna</h3>
-                        <img src="images/donna.jpg" ></img> 
+                        <img src="images/donna.jpg" alt="donna"></img> 
                     </div>
                     <div>
                         <h3>fi</h3>
-                        <img src="images/fiona.jpg"></img>
+                        <img src="images/fiona.jpg" alt="fi"></img>
                     </div>
                 </div>
             </main>

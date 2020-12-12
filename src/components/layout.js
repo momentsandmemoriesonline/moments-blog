@@ -4,36 +4,30 @@ import { Link } from "gatsby"
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
-  let header
-
-  if (isRootPath) {
-    header = (
-      <h1 className="main-heading">
-        <Link to="/">{title}</Link>
-      </h1>
-    )
-  } else {
-    header = (
-      <Link className="header-link-home" to="/">
-        {title}
-      </Link>
-    )
-  }
 
   return (
-    <div className="global-wrapper" data-is-root-path={isRootPath}>
-      <header className="global-header">{header}</header>
-      <p>
-        <Link to="/">Home</Link> |
-        <Link to="/about/">About</Link> |
-        <Link to="/contact/">Contact</Link> |
-        <Link to="/blog/">Blog</Link>
-      </p>
-      <main>{children}</main>
+    <div data-is-root-path={isRootPath}>
+      <header className="global-header">
+        <div className="site-header">
+          <Link style={{width:"250px"}} to="/">
+            <img alt="" style={{padding: "5px",float:"left"}} src={'/img/logo.png'}/>
+            <div style={{display:"inline-block",marginLeft:"10px", marginTop: "10px", lineHeight:"15px"}}>
+              <div>{title}</div>
+              <span style={{float:"right"}}>by D&F Photography</span>
+            </div>
+          </Link>
+        </div>
+        
+        <Link className="header-link" to="/about/">About</Link>
+        <Link className="header-link" to="/contact/">Contact</Link>
+        <Link className="header-link" to="/blog/">Blog</Link>
+      </header>
+      
+      <main className="global-wrapper" >{children}</main>
       <footer>
-        © {new Date().getFullYear()}, Built with
+        {/* © {new Date().getFullYear()}, Built with
         {` `}
-        <a href="https://www.gatsbyjs.com">Gatsby</a>
+        <a href="https://www.gatsbyjs.com">Gatsby</a> */}
       </footer>
     </div>
   )

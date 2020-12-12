@@ -1,13 +1,17 @@
 import React from "react"
 import Layout from "../components/layout"
-
+import SliderComponent from "../components/slider"
 const HomePage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   return (
     <Layout location='' title={siteTitle}>
         <main>
-            <h1>{data.allMarkdownRemark.edges[0].node.frontmatter.title}</h1>
-            <div dangerouslySetInnerHTML={{ __html: data.allMarkdownRemark.edges[0].node.html}} />
+          <SliderComponent></SliderComponent>
+            {/* <h1>{data.allMarkdownRemark.edges[0].node.frontmatter.title}</h1> */}
+                {/* <img src={data.allMarkdownRemark.edges[0].node.frontmatter.sliderimage1} alt="" />
+                <img src={data.allMarkdownRemark.edges[0].node.frontmatter.sliderimage2} alt="" /> */}
+            
+            {/* <div dangerouslySetInnerHTML={{ __html: data.allMarkdownRemark.edges[0].node.html}} /> */}
         </main>
     </Layout>
   )
@@ -29,7 +33,9 @@ export const homePageQuery = graphql`
           id,
           frontmatter{
             templateKey,
-            title
+            title,
+            sliderimage1,
+            sliderimage2
           },
           html
         }
