@@ -31,8 +31,9 @@ collections:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
           - {label: Title, name: title, widget: string}
           - {label: Body, name: body, widget: markdown}
-          - {label: Image, name: image, widget: image}
-      - file: "content/pages/about.md"
+          - {label: Slider Image 1, name: sliderimage1, widget: image}
+          - {label: Slider Image 2, name: sliderimage2, widget: image}
+          - file: "content/pages/about.md"
         label: "About"
         name: "about"
         fields:
