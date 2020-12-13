@@ -157,7 +157,9 @@ h6 > a {
   text-decoration: none;
   color: inherit;
 }
-
+h2{
+  color: #570430;
+}
 /* Prose */
 
 p {
@@ -371,4 +373,12 @@ a:focus {
 }
 .site-header span{
   font-size: 10px;
+}
+.slick-prev:before {
+  color: #570430 !important;
+  
+}
+.slick-next:before {
+  color: #570430 !important;
+  
 }

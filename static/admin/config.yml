@@ -57,6 +57,10 @@ collections:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "services-page"}
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}  
+          - {label: "Package 1", name: package1, widget: image}
+          - {label: "Package 2", name: package2, widget: image}
+          - {label: "Package 3", name: package3, widget: image}
+          - {label: "Package 4", name: package4, widget: image}
       - file: "content/pages/book.md"
         label: "Book"
         name: "book"
