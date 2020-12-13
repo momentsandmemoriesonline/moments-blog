@@ -1,6 +1,8 @@
 import React from "react"
 import Layout from "../components/layout"
 import SliderComponent from "../components/slider"
+import { graphql } from 'gatsby'
+
 const HomePage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   return (
@@ -28,9 +30,7 @@ export const homePageQuery = graphql`
           id,
           frontmatter{
             templateKey,
-            title,
-            sliderimage1,
-            sliderimage2
+            title
           },
           html
         }
