@@ -40,9 +40,8 @@ collections:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
-          - {label: Donna, name: donna, widget: image}
-          - {label: Fi, name: fi, widget: image}
-          
+          - {label: "Donna", name: donna, widget: image}
+          - {label: "Fi", name: fi, widget: image}  
       - file: "content/pages/contact.md"
         label: "Contact"
         name: "contact"
