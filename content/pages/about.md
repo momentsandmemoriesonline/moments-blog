@@ -3,6 +3,7 @@ templateKey: about-page
 title: The Photographers
 donna: /img/donna.jpg
 fiona: /img/fiona.jpg
+fi: /img/fiona.jpg
 ---
 Those special times in our lives we want captured with a flash .
 
