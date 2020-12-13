@@ -1,7 +1,6 @@
 ---
 templateKey: contact-page
 title: Contact Us
-map: /img/map.jpg
 ---
  Unit 3 Templemore Business Park, Northland Road, BT48 OLD\
  Phone: 07566240106\
