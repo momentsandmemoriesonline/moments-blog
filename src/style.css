@@ -254,6 +254,11 @@ a:focus {
 .global-header {
   margin-bottom: var(--spacing-12);
   background-color: #570430;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+
 }
 .global-header a{
   color: white;
@@ -366,7 +371,4 @@ a:focus {
 }
 .site-header span{
   font-size: 10px;
-}
-header{
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
 }

@@ -12,7 +12,9 @@ const ContactPage = ({ data, location }) => {
                 <h2>{data.allMarkdownRemark.edges[0].node.frontmatter.title}</h2>
                 <div>
                   <div dangerouslySetInnerHTML={{ __html: data.allMarkdownRemark.edges[0].node.html}} />
-                 
+                  <img 
+                  style={{border:"6px solid black", borderRadius: "20px", objectFit: "scale-down", width: "100%"}}
+                  src={data.allMarkdownRemark.edges[0].node.frontmatter.map}></img>
                 </div>
             </main>
         </Layout>

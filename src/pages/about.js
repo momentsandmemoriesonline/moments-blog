@@ -15,14 +15,14 @@ const AboutPage = ({ data, location }) =>
                     <div>
                         <h3 style={{textAlign: "center"}}>Donna</h3>
                         <img 
-                        style={{borderRadius:"50%"}}
+                        style={{border: "4px solid #570430", borderRadius:"50%"}}
                         src={data.allMarkdownRemark.edges[0].node.frontmatter.donna} 
                         alt="donna"></img> 
                     </div>
                     <div>
                         <h3 style={{textAlign: "center"}}>fi</h3>
                         <img 
-                        style={{borderRadius:"50%"}}
+                        style={{border: "4px solid #570430", borderRadius:"50%"}}
                         src={data.allMarkdownRemark.edges[0].node.frontmatter.fiona} alt="fi"></img>
                     </div>
                 </div>
