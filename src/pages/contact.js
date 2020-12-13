@@ -9,8 +9,13 @@ const ContactPage = ({ data, location }) => {
         
         <Layout location={location} title={siteTitle}>
             <main>
-                <h1>{data.allMarkdownRemark.edges[0].node.frontmatter.title}</h1>
-                <div dangerouslySetInnerHTML={{ __html: data.allMarkdownRemark.edges[0].node.html}} />
+                <h2>{data.allMarkdownRemark.edges[0].node.frontmatter.title}</h2>
+                <div>
+                  <div dangerouslySetInnerHTML={{ __html: data.allMarkdownRemark.edges[0].node.html}} />
+                  <img 
+                  style={{border:"6px solid black", borderRadius: "20px", objectFit: "scale-down", width: "100%"}}
+                  src={data.allMarkdownRemark.edges[0].node.frontmatter.map}></img>
+                </div>
             </main>
         </Layout>
 
@@ -32,7 +37,8 @@ export const pageQuery = graphql`
           id,
           frontmatter{
             templateKey,
-            title
+            title,
+            map
           }
           html
         }

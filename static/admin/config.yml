@@ -39,7 +39,10 @@ collections:
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
           - {label: "Title", name: "title", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}          
+          - {label: "Body", name: "body", widget: "markdown"}
+          - {label: Donna, name: donna, widget: image}
+          - {label: Fi, name: fi, widget: image}
+          
       - file: "content/pages/contact.md"
         label: "Contact"
         name: "contact"
@@ -47,6 +50,7 @@ collections:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "contact-page"}
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}  
+          - {label: Map, name: map, widget: image}
       - file: "content/pages/services.md"
         label: "Services"
         name: "services"

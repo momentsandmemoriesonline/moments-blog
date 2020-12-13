@@ -11,14 +11,19 @@ const AboutPage = ({ data, location }) =>
                 <h2>{data.allMarkdownRemark.edges[0].node.frontmatter.title}</h2>
                 <div dangerouslySetInnerHTML={{ __html: data.allMarkdownRemark.edges[0].node.html}} />
 
-                <div>
+                <div style={{display:"flex", justifyContent: "space-evenly"}}> 
                     <div>
-                        <h3>Donna</h3>
-                        <img src="images/donna.jpg" alt="donna"></img> 
+                        <h3 style={{textAlign: "center"}}>Donna</h3>
+                        <img 
+                        style={{borderRadius:"50%"}}
+                        src={data.allMarkdownRemark.edges[0].node.frontmatter.donna} 
+                        alt="donna"></img> 
                     </div>
                     <div>
-                        <h3>fi</h3>
-                        <img src="images/fiona.jpg" alt="fi"></img>
+                        <h3 style={{textAlign: "center"}}>fi</h3>
+                        <img 
+                        style={{borderRadius:"50%"}}
+                        src={data.allMarkdownRemark.edges[0].node.frontmatter.fiona} alt="fi"></img>
                     </div>
                 </div>
             </main>
@@ -42,7 +47,9 @@ export const aboutPageQuery = graphql`
           id,
           frontmatter{
             templateKey,
-            title
+            title,
+            donna,
+            fiona
           }
           html
         }
