@@ -35,7 +35,8 @@ export const pageQuery = graphql`
           id,
           frontmatter{
             templateKey,
-            title
+            title,
+            map
           }
           html
         }
