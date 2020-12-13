@@ -19,7 +19,9 @@ const Layout = ({ location, title, children }) => {
         </div>
         
         <Link className="header-link" to="/about/">About</Link>
+        <Link className="header-link" to="/services/">Services</Link>
         <Link className="header-link" to="/contact/">Contact</Link>
+        <Link className="header-link" to="/book/">Book</Link>
         <Link className="header-link" to="/blog/">Blog</Link>
       </header>
       

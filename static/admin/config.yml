@@ -47,3 +47,17 @@ collections:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "contact-page"}
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}  
+      - file: "content/pages/services.md"
+        label: "Services"
+        name: "services"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "services-page"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}  
+      - file: "content/pages/book.md"
+        label: "Book"
+        name: "book"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "book-page"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}            

@@ -7,11 +7,6 @@ const HomePage = ({ data, location }) => {
     <Layout location='' title={siteTitle}>
         <main>
           <SliderComponent></SliderComponent>
-            {/* <h1>{data.allMarkdownRemark.edges[0].node.frontmatter.title}</h1> */}
-                {/* <img src={data.allMarkdownRemark.edges[0].node.frontmatter.sliderimage1} alt="" />
-                <img src={data.allMarkdownRemark.edges[0].node.frontmatter.sliderimage2} alt="" /> */}
-            
-            {/* <div dangerouslySetInnerHTML={{ __html: data.allMarkdownRemark.edges[0].node.html}} /> */}
         </main>
     </Layout>
   )
