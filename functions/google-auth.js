@@ -4,6 +4,8 @@ if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
 }
 
+console.log(process.env.client_email)
+
 let jwtClient = new google.auth.JWT(
     process.env.client_email,
     null,
