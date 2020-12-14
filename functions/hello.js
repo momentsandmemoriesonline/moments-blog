@@ -8,12 +8,13 @@ exports.handler = async (event, context) => {
     googleAuth.login()
     .then(auth => Promise.all([getBookable(auth), getBooked(auth)])
     .then(data => {
-      console.log(removeConflicts(splitSlots(data[0]), data[1]));
+      
+      return {
+        statusCode: 200,
+        body: removeConflicts(splitSlots(data[0]), data[1])
+      };
     }));  
 
 
-    return {
-      statusCode: 200,
-      body: `Hello, ${name}`
-    };
+    
   };
