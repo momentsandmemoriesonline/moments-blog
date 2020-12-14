@@ -2,7 +2,7 @@ const googleAuth = require('./google-auth');
 const {getBookable, getBooked} = require("./google-calendar-function");
 const {splitSlots, removeConflicts} = require("./slot-util");
 
-exports.handler = async (event, context) => {
+exports.handler = (event, context) => {
     const { name = "Anonymous" } = event.queryStringParameters;
     console.log("HERE2")
     googleAuth.login()
