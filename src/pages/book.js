@@ -1,6 +1,7 @@
 import React from "react"
 import Layout from "../components/layout"
 import { graphql } from 'gatsby'
+import Bookings from '../components/bookings'
 
 const BookPage = ({ data, location }) => 
 {
@@ -11,7 +12,7 @@ const BookPage = ({ data, location }) =>
             <main>
                 <h2>Book</h2>
                 <div dangerouslySetInnerHTML={{ __html: data.allMarkdownRemark.edges[0].node.html}} />
-
+                <Bookings></Bookings>
                 
             </main>
         </Layout>
