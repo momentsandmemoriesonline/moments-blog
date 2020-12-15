@@ -13,7 +13,4 @@ exports.handler = async(event, context) => {
         body: JSON.stringify(removeConflicts(splitSlots(data[0]), data[1]))
       };
     }));  
-
-
-    
   };

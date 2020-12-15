@@ -49,4 +49,26 @@ function getBooked(auth) {
   })
 }
 
-module.exports = {getBookable, getBooked}
+function book(auth, event){
+  return new Promise((resolve, reject) => {
+    const calendar = google.calendar({version: 'v3', auth});
+
+    calendar.events.insert({
+      auth: auth,
+      calendarId: bookedSlotConfig.calendarId,
+      resource: event,
+    }, function(err, event) {
+      if (err) {
+        console.log('There was an error contacting the Calendar service: ' + err);
+        reject();
+      }
+      
+      console.log('Event created: %s', event.htmlLink);
+      resolve();
+    });
+
+  });
+  
+}
+
+module.exports = {getBookable, getBooked, book}

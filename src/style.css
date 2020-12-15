@@ -382,3 +382,14 @@ a:focus {
   color: #570430 !important;
   
 }
+.slot{
+  padding: 10px;
+  border: 2px solid purple;
+  border-radius: 10px;
+}
+.booking-btn{
+  background-color: purple;
+  color: white;
+  border-radius: 5px;
+  padding: 4px 50px;
+}
