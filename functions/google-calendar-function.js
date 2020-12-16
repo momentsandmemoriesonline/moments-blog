@@ -69,6 +69,7 @@ function book(auth, event){
       console.log("CREATED")      
       resolve();
     });
+    console.log("HOW'D WE GET HERE THEN")
 
   })
   .catch(err => {
