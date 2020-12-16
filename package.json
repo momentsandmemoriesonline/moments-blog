@@ -35,7 +35,7 @@
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.75",
     "dotenv": "^8.2.0",
-    "googleapis": "^39.2.0"
+    "googleapis": "^66.0.0"
   },
   "devDependencies": {
     "prettier": "2.1.2"
