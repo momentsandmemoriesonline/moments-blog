@@ -62,11 +62,13 @@ function book(auth, event){
         console.log('There was an error contacting the Calendar service: ' + err);
         reject();
       }
-      
-      console.log('Event created: %s', event.htmlLink);
+      console.log("CREATED")      
       resolve();
     });
 
+  })
+  .catch(err => {
+    console.log(err);
   });
   
 }
