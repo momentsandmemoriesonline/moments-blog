@@ -21,6 +21,7 @@ function getBookable(auth) {
         resolve(bookableSlots);
       } else {
         console.log('No upcoming events found.');
+        resolve('No upcoming events found.')
       }
     });
   })
@@ -44,6 +45,7 @@ function getBooked(auth) {
         resolve(bookedSlots)
       } else {
         console.log('No upcoming events found.');
+        resolve([])
       }
     });
   })
