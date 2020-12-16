@@ -56,11 +56,13 @@ function book(auth, event){
   return new Promise((resolve, reject) => {
     const calendar = google.calendar({version: 'v3', auth});
     console.log("getting ready to insert")
-    calendar.events.insert({
+    const conf = {
       auth: auth,
       calendarId: bookedSlotConfig.calendarId,
       resource: event,
-    }, function(err, event) {
+    };
+    console.log(auth)
+    calendar.events.insert(conf, function(err, event) {
       console.log("Made it here")
       if (err) {
         console.log('There was an error contacting the Calendar service: ' + err);
