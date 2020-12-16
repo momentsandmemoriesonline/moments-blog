@@ -8,20 +8,10 @@ exports.handler = async(event, context) => {
     console.log(photoEvent)
     return googleAuth.login()
     .then(auth => {
-      book(auth, photoEvent)
-      .then(data => {
-        return {
-          statusCode: 200,
-          body: "BOOKED"
-        };
-      })
-      .catch(err => {
-        console.log("error booking")
-        console.log(err)
-      });
-      
-    })
-    .catch(err => {
-      console.log(err);
+      book(auth, photoEvent);
+      return {
+        statusCode: 200,
+        body: "BOOKED"
+      };
     });  
   };
