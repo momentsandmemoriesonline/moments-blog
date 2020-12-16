@@ -10,7 +10,7 @@ let jwtClient = new google.auth.JWT(
     process.env.client_email,
     null,
     process.env.private_key.replace(/\\n/gm, '\n'),
-    ['https://www.googleapis.com/auth/calendar']); 
+    ['https://www.googleapis.com/auth/calendar','https://www.googleapis.com/auth/calendar.events']); 
 
 exports.login = function() {
     return new Promise((resolve, reject) => {
