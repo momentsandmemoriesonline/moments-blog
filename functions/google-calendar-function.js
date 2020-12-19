@@ -51,7 +51,7 @@ function getBooked(auth) {
   })
 }
 
-function book(auth, bookingEvent){
+async function book(auth, bookingEvent){
   console.log("trying to booking")
   return new Promise((resolve, reject) => {
     const calendar = google.calendar({version: 'v3', auth});

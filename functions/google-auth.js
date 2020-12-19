@@ -12,7 +12,7 @@ let jwtClient = new google.auth.JWT(
     process.env.private_key.replace(/\\n/gm, '\n'),
     ['https://www.googleapis.com/auth/calendar','https://www.googleapis.com/auth/calendar.events']); 
 
-exports.login = function() {
+exports.login = async function() {
     return new Promise((resolve, reject) => {
         jwtClient.authorize(function (err, tokens) {
             if (err) {
