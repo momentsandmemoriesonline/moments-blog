@@ -10,7 +10,7 @@ exports.handler = async(event, context) => {
     .then(auth => {
       book(auth, photoEvent)
       .then(data => {
-        console.log("in here")
+        console.log("in here" + data)
         return {
           statusCode: 200,
           body: "BOOKED"
