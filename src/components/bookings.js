@@ -68,15 +68,24 @@ class Bookings extends React.Component{
         return (
             <div>
                 <div >
-                    <h1 style={this.state.showBooked ? {} : { display: 'none'} }>BOOKED</h1>
+                    <h2 style={this.state.showBooked ? {} : { display: 'none'} }>BOOKED</h2>
                 </div>
                 <div className="bookingDetail" style={this.state.showDetail ? {} : { display: 'none'} }>
-                    {this.state.currentBooking?.start?.dateTime}
-                    {this.state.currentBooking?.end?.dateTime}
+                    <p>
+                        {new Date(this.state.currentBooking?.start?.dateTime).toLocaleDateString()} -
+                        {new Date(this.state.currentBooking?.end?.dateTime).toLocaleTimeString()}
+                    </p>
                     <br />
-                    Name: <input value={this.state.name} onChange={this.handleChange} />
+                    <p>
+                        <label style={{width:"200px", display: "inline-block"}}>Name:</label> 
+                        <input value={this.state.name} onChange={this.handleChange} />
+                    </p>
                     <br />
-                    Telephone: <input value={this.state.tel} onChange={this.handleTelChange} />
+                    <p>
+                        <label style={{width:"200px", display: "inline-block"}}>Telephone:</label> 
+                        <input value={this.state.tel} onChange={this.handleTelChange} />
+                    </p>
+                    <br />
                     <button className="booking-btn" onClick={() => this.bookDetails()}>Book</button>
                 </div>
                 <div className="slots" style={this.state.showSlots ? {} : { display: 'none'} }>

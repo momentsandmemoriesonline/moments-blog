@@ -7,7 +7,7 @@ const Layout = ({ location, title, children }) => {
 
   return (
     <div data-is-root-path={isRootPath}>
-      <header className="global-header">
+      <header className="global-header header">
         <div className="site-header">
           <Link style={{width:"250px"}} to="/">
             <img alt="" style={{padding: "5px",float:"left"}} src={'/img/logo.png'}/>
@@ -17,12 +17,15 @@ const Layout = ({ location, title, children }) => {
             </div>
           </Link>
         </div>
-        
-        <Link className="header-link" to="/about/">About</Link>
-        <Link className="header-link" to="/services/">Packages</Link>
-        <Link className="header-link" to="/contact/">Contact</Link>
-        <Link className="header-link" to="/book/">Book</Link>
-        <Link className="header-link" to="/blog/">Blog</Link>
+        <input className="menu-btn" type="checkbox" id="menu-btn" />
+        <label className="menu-icon" htmlFor="menu-btn"><span className="navicon"></span></label>
+        <ul className="menu">
+          <li><Link className="header-link" to="/about/">About</Link></li>
+          <li><Link className="header-link" to="/services/">Packages</Link></li>
+          <li><Link className="header-link" to="/contact/">Contact</Link></li>
+          <li><Link className="header-link" to="/book/">Book</Link></li>
+          <li><Link className="header-link" to="/blog/">Blog</Link></li>
+        </ul>
       </header>
       
       <main className="global-wrapper" >{children}</main>
