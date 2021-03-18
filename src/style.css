@@ -384,11 +384,11 @@ a:focus {
 }
 .slot{
   padding: 10px;
-  border: 2px solid purple;
+  border: 2px solid #570430;
   border-radius: 10px;
 }
 .booking-btn{
-  background-color: purple;
+  background-color: #570430;
   color: white;
   border-radius: 5px;
   padding: 4px 50px;
@@ -401,7 +401,7 @@ main{
 /* header */
 
 .header {
-  background-color: purple;
+  background-color: #570430;
   box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
   position: fixed;
   width: 100%;
@@ -413,7 +413,7 @@ main{
   padding: 0;
   list-style: none;
   overflow: hidden;
-  background-color: purple;
+  background-color: #570430;
 }
 
 .header li a {

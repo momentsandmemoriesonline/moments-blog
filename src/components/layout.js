@@ -24,7 +24,7 @@ const Layout = ({ location, title, children }) => {
           <li><Link className="header-link" to="/services/">Packages</Link></li>
           <li><Link className="header-link" to="/contact/">Contact</Link></li>
           <li><Link className="header-link" to="/book/">Book</Link></li>
-          <li><Link className="header-link" to="/blog/">Blog</Link></li>
+          {/* <li><Link className="header-link" to="/blog/">Blog</Link></li> */}
         </ul>
       </header>
       
