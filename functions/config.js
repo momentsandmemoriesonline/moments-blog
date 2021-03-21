@@ -1,5 +1,5 @@
 const bookableSlotConfig = {
-    calendarId: 's6pcf6q5u4jevd2a4f8ctc6m94@group.calendar.google.com',
+    calendarId: 'ck0csju8089dj23bun2hquuq8s@group.calendar.google.com',
     timeMin: (new Date()).toISOString(),
     maxResults: 50,
     singleEvents: true,
@@ -7,7 +7,7 @@ const bookableSlotConfig = {
 }
 
 const bookedSlotConfig = {
-    calendarId: 'rltrvkru5so57skps3j876dscs@group.calendar.google.com',
+    calendarId: '2m03rte6f4tpri3nt1gll4fmb8@group.calendar.google.com',
     timeMin: (new Date()).toISOString(),
     maxResults: 50,
     singleEvents: true,
