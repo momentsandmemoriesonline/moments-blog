@@ -10,7 +10,8 @@ class Bookings extends React.Component{
             tel: "",
             showDetail: false,
             showSlots: true,
-            showBooked: false
+            showBooked: false,
+            loading: true
         }
         this.book = this.book.bind(this);
         this.bookDetails = this.bookDetails.bind(this);
@@ -23,6 +24,7 @@ class Bookings extends React.Component{
         .then(res => res.json())
         .then((data) => {
           this.setState({bookings: data})
+          this.setState({loading: false})
         })
         .catch(console.log)
     }
@@ -89,13 +91,23 @@ class Bookings extends React.Component{
                     <button className="booking-btn" onClick={() => this.bookDetails()}>Book</button>
                 </div>
                 <div className="slots" style={this.state.showSlots ? {} : { display: 'none'} }>
-                    {this.state.bookings.map((booking, index) => {
-                        return(
-                            <p className="slot" key={index}> {new Date(booking.start).toLocaleDateString()} : {new Date(booking.start).toLocaleTimeString()} - {new Date(booking.end).toLocaleTimeString()}
-                                <button className="booking-btn" onClick={() => this.book(booking)}>Select</button>
-                            </p>
-                        )
-                    })}
+                    {this.state.loading &&
+                        <h2>LOADING....</h2>
+                    }
+                    {!this.state.loading && this.state.bookings.length === 0 &&
+                        <h2>No Bookings Slots Available</h2>
+                    }
+                    {!this.state.loading && this.state.bookings.length > 0 &&
+                        this.state.bookings.map((booking, index) => {
+                            return(
+                                <p className="slot" key={index}> {new Date(booking.start).toLocaleDateString()} : {new Date(booking.start).toLocaleTimeString()} - {new Date(booking.end).toLocaleTimeString()}
+                                    <button className="booking-btn" onClick={() => this.book(booking)}>Select</button>
+                                </p>
+                            )
+                        })
+                    }
+                    
+
                 </div>
             </div>
         )
