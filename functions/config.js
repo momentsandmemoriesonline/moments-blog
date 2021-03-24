@@ -1,5 +1,9 @@
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+
 const bookableSlotConfig = {
-    calendarId: 'ck0csju8089dj23bun2hquuq8s@group.calendar.google.com',
+    calendarId: process.env.bookableCalendarId,
     timeMin: (new Date()).toISOString(),
     maxResults: 50,
     singleEvents: true,
@@ -7,7 +11,7 @@ const bookableSlotConfig = {
 }
 
 const bookedSlotConfig = {
-    calendarId: '2m03rte6f4tpri3nt1gll4fmb8@group.calendar.google.com',
+    calendarId: process.env.bookedCalendarId,
     timeMin: (new Date()).toISOString(),
     maxResults: 50,
     singleEvents: true,

@@ -8,14 +8,19 @@ class Bookings extends React.Component{
             currentBooking:{'summary':'Family'},
             name:"",
             tel: "",
+            event: "",
+            specialreqs: "",
             showDetail: false,
             showSlots: true,
-            showBooked: false
+            showBooked: false,
+            loading: true
         }
         this.book = this.book.bind(this);
         this.bookDetails = this.bookDetails.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleTelChange = this.handleTelChange.bind(this);
+        this.handleEventChange = this.handleEventChange.bind(this);
+        this.handleSpecialReqsChange = this.handleSpecialReqsChange.bind(this);
     }
 
     componentDidMount() {
@@ -23,6 +28,7 @@ class Bookings extends React.Component{
         .then(res => res.json())
         .then((data) => {
           this.setState({bookings: data})
+          this.setState({loading: false})
         })
         .catch(console.log)
     }
@@ -33,6 +39,12 @@ class Bookings extends React.Component{
 
     handleTelChange(event) {
         this.setState({tel: event.target.value});
+    }
+    handleEventChange(event) {
+        this.setState({event: event.target.value});
+    }
+    handleSpecialReqsChange(event) {
+        this.setState({specialreqs: event.target.value});
     }
 
     book(booking) {
@@ -51,8 +63,10 @@ class Bookings extends React.Component{
 
     bookDetails(){
         let copyBooking = { ...this.state.currentBooking};
-        copyBooking.description = this.state.name + this.state.tel;
-        copyBooking.summary = 'Family';
+        copyBooking.description = 'name:' + this.state.name + '\n';
+        copyBooking.description +='tel:' + this.state.tel+ '\n';
+        copyBooking.description +='special requirements:' + this.state.specialreqs;
+        copyBooking.summary = this.state.event;
         fetch('/api/book', {
             method: 'post',
             body: JSON.stringify(copyBooking)
@@ -77,25 +91,47 @@ class Bookings extends React.Component{
                     </p>
                     <br />
                     <p>
-                        <label style={{width:"200px", display: "inline-block"}}>Name:</label> 
-                        <input value={this.state.name} onChange={this.handleChange} />
+                        <label htmlFor="name" style={{width:"200px", display: "inline-block"}}>Name:</label> 
+                        <input id="name" value={this.state.name} onChange={this.handleChange} />
                     </p>
                     <br />
                     <p>
-                        <label style={{width:"200px", display: "inline-block"}}>Telephone:</label> 
-                        <input value={this.state.tel} onChange={this.handleTelChange} />
+                        <label htmlFor="telno" style={{width:"200px", display: "inline-block"}}>Telephone:</label> 
+                        <input id="telno" value={this.state.tel} onChange={this.handleTelChange} />
+                    </p>
+                    <p>
+                        <label htmlFor="event" style={{width:"200px", display: "inline-block"}}>Event:</label> 
+                        <select id="event" value={this.state.event} onChange={this.handleEventChange}>
+                            <option>Please Select...</option>
+                            <option>Cakesmash</option>
+                            <option>Other</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label htmlFor="specialreqs" style={{width:"200px", display: "inline-block"}}>Special Requirements:</label> 
+                        <textarea id="specialreqs" value={this.state.specialreqs} onChange={this.handleSpecialReqsChange} />
                     </p>
                     <br />
                     <button className="booking-btn" onClick={() => this.bookDetails()}>Book</button>
                 </div>
                 <div className="slots" style={this.state.showSlots ? {} : { display: 'none'} }>
-                    {this.state.bookings.map((booking, index) => {
-                        return(
-                            <p className="slot" key={index}> {new Date(booking.start).toLocaleDateString()} : {new Date(booking.start).toLocaleTimeString()} - {new Date(booking.end).toLocaleTimeString()}
-                                <button className="booking-btn" onClick={() => this.book(booking)}>Select</button>
-                            </p>
-                        )
-                    })}
+                    {this.state.loading &&
+                        <h2>LOADING....</h2>
+                    }
+                    {!this.state.loading && this.state.bookings.length === 0 &&
+                        <h2>No Bookings Slots Available</h2>
+                    }
+                    {!this.state.loading && this.state.bookings.length > 0 &&
+                        this.state.bookings.map((booking, index) => {
+                            return(
+                                <p className="slot" key={index}> {new Date(booking.start).toLocaleDateString()} : {new Date(booking.start).toLocaleTimeString()} - {new Date(booking.end).toLocaleTimeString()}
+                                    <button className="booking-btn" onClick={() => this.book(booking)}>Select</button>
+                                </p>
+                            )
+                        })
+                    }
+                    
+
                 </div>
             </div>
         )
