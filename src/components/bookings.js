@@ -8,6 +8,8 @@ class Bookings extends React.Component{
             currentBooking:{'summary':'Family'},
             name:"",
             tel: "",
+            event: "",
+            specialreqs: "",
             showDetail: false,
             showSlots: true,
             showBooked: false,
@@ -17,6 +19,8 @@ class Bookings extends React.Component{
         this.bookDetails = this.bookDetails.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleTelChange = this.handleTelChange.bind(this);
+        this.handleEventChange = this.handleEventChange.bind(this);
+        this.handleSpecialReqsChange = this.handleSpecialReqsChange.bind(this);
     }
 
     componentDidMount() {
@@ -36,6 +40,12 @@ class Bookings extends React.Component{
     handleTelChange(event) {
         this.setState({tel: event.target.value});
     }
+    handleEventChange(event) {
+        this.setState({event: event.target.value});
+    }
+    handleSpecialReqsChange(event) {
+        this.setState({specialreqs: event.target.value});
+    }
 
     book(booking) {
         this.setState({showSlots: false})
@@ -53,8 +63,10 @@ class Bookings extends React.Component{
 
     bookDetails(){
         let copyBooking = { ...this.state.currentBooking};
-        copyBooking.description = this.state.name + this.state.tel;
-        copyBooking.summary = 'Family';
+        copyBooking.description = 'name:' + this.state.name + '\n';
+        copyBooking.description +='tel:' + this.state.tel+ '\n';
+        copyBooking.description +='special requirements:' + this.state.specialreqs;
+        copyBooking.summary = this.state.event;
         fetch('/api/book', {
             method: 'post',
             body: JSON.stringify(copyBooking)
@@ -79,13 +91,25 @@ class Bookings extends React.Component{
                     </p>
                     <br />
                     <p>
-                        <label style={{width:"200px", display: "inline-block"}}>Name:</label> 
-                        <input value={this.state.name} onChange={this.handleChange} />
+                        <label htmlFor="name" style={{width:"200px", display: "inline-block"}}>Name:</label> 
+                        <input id="name" value={this.state.name} onChange={this.handleChange} />
                     </p>
                     <br />
                     <p>
-                        <label style={{width:"200px", display: "inline-block"}}>Telephone:</label> 
-                        <input value={this.state.tel} onChange={this.handleTelChange} />
+                        <label htmlFor="telno" style={{width:"200px", display: "inline-block"}}>Telephone:</label> 
+                        <input id="telno" value={this.state.tel} onChange={this.handleTelChange} />
+                    </p>
+                    <p>
+                        <label htmlFor="event" style={{width:"200px", display: "inline-block"}}>Event:</label> 
+                        <select id="event" value={this.state.event} onChange={this.handleEventChange}>
+                            <option>Please Select...</option>
+                            <option>Cakesmash</option>
+                            <option>Other</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label htmlFor="specialreqs" style={{width:"200px", display: "inline-block"}}>Special Requirements:</label> 
+                        <textarea id="specialreqs" value={this.state.specialreqs} onChange={this.handleSpecialReqsChange} />
                     </p>
                     <br />
                     <button className="booking-btn" onClick={() => this.bookDetails()}>Book</button>
