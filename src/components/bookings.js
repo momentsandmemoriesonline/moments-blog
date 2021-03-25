@@ -8,6 +8,7 @@ class Bookings extends React.Component{
             currentBooking:{'summary':'Family'},
             name:"",
             tel: "",
+            email: "",
             event: "",
             specialreqs: "",
             showDetail: false,
@@ -19,6 +20,7 @@ class Bookings extends React.Component{
         this.bookDetails = this.bookDetails.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleTelChange = this.handleTelChange.bind(this);
+        this.handleEmailChange = this.handleEmailChange.bind(this);
         this.handleEventChange = this.handleEventChange.bind(this);
         this.handleSpecialReqsChange = this.handleSpecialReqsChange.bind(this);
     }
@@ -40,6 +42,11 @@ class Bookings extends React.Component{
     handleTelChange(event) {
         this.setState({tel: event.target.value});
     }
+
+    handleEmailChange(event) {
+        this.setState({email: event.target.value});
+    }
+
     handleEventChange(event) {
         this.setState({event: event.target.value});
     }
@@ -65,6 +72,7 @@ class Bookings extends React.Component{
         let copyBooking = { ...this.state.currentBooking};
         copyBooking.description = 'name:' + this.state.name + '\n';
         copyBooking.description +='tel:' + this.state.tel+ '\n';
+        copyBooking.description +='email:' + this.state.email+ '\n';
         copyBooking.description +='special requirements:' + this.state.specialreqs;
         copyBooking.summary = this.state.event;
         fetch('/api/book', {
@@ -84,27 +92,38 @@ class Bookings extends React.Component{
                 <div >
                     <h2 style={this.state.showBooked ? {} : { display: 'none'} }>BOOKED</h2>
                 </div>
+                <div className="bookingDetail-summary" style={this.state.showDetail ? {} : { display: 'none'} }>
+                    <h3>
+                        Date: {new Date(this.state.currentBooking?.start?.dateTime).toLocaleDateString()} 
+                        <br />
+                        Time: {new Date(this.state.currentBooking?.start?.dateTime).toLocaleTimeString()} - 
+                        {new Date(this.state.currentBooking?.end?.dateTime).toLocaleTimeString()}
+                    </h3>
+                </div>
                 <div className="bookingDetail" style={this.state.showDetail ? {} : { display: 'none'} }>
                     <p>
-                        {new Date(this.state.currentBooking?.start?.dateTime).toLocaleDateString()} -
-                        {new Date(this.state.currentBooking?.end?.dateTime).toLocaleTimeString()}
-                    </p>
-                    <br />
-                    <p>
-                        <label htmlFor="name" style={{width:"200px", display: "inline-block"}}>Name:</label> 
+                        <label htmlFor="name">Name:</label> 
                         <input id="name" value={this.state.name} onChange={this.handleChange} />
                     </p>
-                    <br />
                     <p>
-                        <label htmlFor="telno" style={{width:"200px", display: "inline-block"}}>Telephone:</label> 
+                        <label htmlFor="telno">Telephone:</label> 
                         <input id="telno" value={this.state.tel} onChange={this.handleTelChange} />
+                    </p>
+                    <p>
+                        <label htmlFor="email" style={{width:"200px", display: "inline-block"}}>Email:</label> 
+                        <input id="email" value={this.state.email} onChange={this.handleEmailChange} />
                     </p>
                     <p>
                         <label htmlFor="event" style={{width:"200px", display: "inline-block"}}>Event:</label> 
                         <select id="event" value={this.state.event} onChange={this.handleEventChange}>
                             <option>Please Select...</option>
                             <option>Cakesmash</option>
-                            <option>Other</option>
+                            <option>Christening</option>
+                            <option>New born</option>
+                            <option>Family</option>
+                            <option>Maternity </option>
+                            <option>Wedding</option>
+                            <option>Engagement</option>
                         </select>
                     </p>
                     <p>
@@ -124,8 +143,14 @@ class Bookings extends React.Component{
                     {!this.state.loading && this.state.bookings.length > 0 &&
                         this.state.bookings.map((booking, index) => {
                             return(
-                                <p className="slot" key={index}> {new Date(booking.start).toLocaleDateString()} : {new Date(booking.start).toLocaleTimeString()} - {new Date(booking.end).toLocaleTimeString()}
-                                    <button className="booking-btn" onClick={() => this.book(booking)}>Select</button>
+                                <p className="slot" key={index}> 
+                                    <span class="slot-detail-date">
+                                        {new Date(booking.start).toLocaleDateString()} 
+                                    </span>
+                                    <span class="slot-detail-time">
+                                        {new Date(booking.start).toLocaleTimeString()} - {new Date(booking.end).toLocaleTimeString()}
+                                    </span>
+                                    <button className="select-btn" onClick={() => this.book(booking)}>Select</button>
                                 </p>
                             )
                         })
