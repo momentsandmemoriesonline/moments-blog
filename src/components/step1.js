@@ -30,7 +30,6 @@ class Step1 extends React.Component{
                 'dateTime': new Date(booking.end).toISOString(),
             }
         };
-        console.log(this.props)
         this.props.onSelectSlot(newbooking);
     }
 

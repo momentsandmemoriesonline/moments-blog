@@ -10,7 +10,6 @@ class Bookings extends React.Component{
             showDetail: false,
             showSlots: true,
             showBooked: false,
-            loading: true
         }
         this.selectSlot = this.selectSlot.bind(this);
         this.booked = this.booked.bind(this);
