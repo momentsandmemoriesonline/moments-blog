@@ -1,0 +1,43 @@
+doctype html
+html(lang='en')
+ head
+   title Moments and Memories
+ body
+   
+    table( align='center', width='800', cellspacing='0', cellpadding='0', border='0', bgcolor='#570430')
+     thead
+      tr(bgcolor='#570430')
+       td 
+        img(src='cid:logo' style={padding: '20px 0 20px 20px'})
+       td
+        h1(style={color: 'white',padding: '0 20px'}) Moments and Memories - Booking Confirmation
+       
+     tbody
+      tr(bgcolor='white' colspan=2)
+       td(colspan=2 style={padding: '0 20px'})
+        p(style={color: '#570430'}) Thank you for booking with Moment &amp; Memories
+      tr(bgcolor='white' colspan=2)
+       td(colspan=2 style={padding: '0 20px'})
+        h2(style={color: '#570430'}) Booking Details
+        p(style={color: '#570430'}) Name: #{photoEvent.name}
+        p(style={color: '#570430'}) Telephone: #{photoEvent.telephone}
+        p(style={color: '#570430'}) Date: #{photoEvent.date}
+        p(style={color: '#570430'}) Time: #{photoEvent.startTime} - #{photoEvent.endTime}
+        p(style={color: '#570430'}) Event: #{photoEvent.event}
+        p(style={color: '#570430'}) Special Requirements: #{photoEvent.special}
+      tr(bgcolor='white' colspan=2)
+       td(colspan=2 style={padding: '0 20px'})
+        h2(style={color: '#570430'}) Payment Details
+        p(style={color: '#570430'}) Please pay of deposit of #{emailConfig.deposit} to the following account to reserve your booking 
+        p(style={color: '#570430'}) account: #{emailConfig.accountNo}
+        p(style={color: '#570430'}) sort code: #{emailConfig.sortCode}
+      tr(bgcolor='white' colspan=2)
+       td(colspan=2 style={padding: '0 20px'})
+        p(style={color: '#570430'}) We look forward to seeing you on your special day
+        p(style={color: '#570430'}) D&amp;F Photography 
+     tfoot
+      tr(bgcolor='#570430')
+       td(colspan=2 style={padding: '0 20px'})
+        h2(style={color: 'white'}) Contact us
+        p(style={color: 'white'}) email: momentsandmemoriesonline@gmail.com
+        p(style={color: 'white'}) tel: 07566240106

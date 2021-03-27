@@ -383,15 +383,73 @@ a:focus {
   
 }
 .slot{
-  padding: 10px;
+  /* padding: 10px; */
   border: 2px solid #570430;
   border-radius: 10px;
+  display:flex;
 }
-.booking-btn{
+.slot-detail-date{
+  padding:10px;
+  flex:auto;
   background-color: #570430;
   color: white;
-  border-radius: 5px;
+  flex-grow:0;
+}
+.slot-detail-time{
+  flex-grow: 1;
+  flex:auto;
+  align-self: center;
+  text-align: center;
+}
+.select-btn{
+  margin: 0;
+  border: 0;
+  
+  background-color: #570430;
+  color: white;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
   padding: 4px 50px;
+}
+.booking-btn{
+  margin: 0;
+  border: 0;
+  
+  background-color: #570430;
+  color: white;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 20px 20px;
+  width: 100%;
+}
+
+.bookingDetail{
+  border: 2px solid #570430;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.bookingDetail p{
+  display: flex;
+  margin:5px 0;
+  padding: 15px;
+
+}
+.bookingDetail label{
+  width: 200px;
+}
+.bookingDetail input, .bookingDetail textarea, .bookingDetail select{
+  flex-grow:1;
+}
+.bookingDetail-summary{
+  border: 2px solid #570430;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: #570430;
+}
+.bookingDetail-summary h3{
+  color: white;
+  text-align: center;
+  margin:10px
 }
 
 main{
