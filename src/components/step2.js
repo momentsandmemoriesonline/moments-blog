@@ -44,6 +44,15 @@ class Step2 extends React.Component{
         copyBooking.description +='email:' + this.state.email+ '\n';
         copyBooking.description +='special requirements:' + this.state.specialreqs;
         copyBooking.summary = this.state.event;
+        copyBooking.email = this.state.email;
+        copyBooking.name = this.state.name;
+        copyBooking.event = this.state.event;
+        copyBooking.date = new Date(this.props.currentBooking?.start?.dateTime).toLocaleDateString("en-UK", {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'});
+        copyBooking.startTime = new Date(this.props.currentBooking?.start?.dateTime).toLocaleTimeString("en-UK", { hour: '2-digit', minute: '2-digit' });
+        copyBooking.endTime = new Date(this.props.currentBooking?.end?.dateTime).toLocaleTimeString("en-UK", { hour: '2-digit', minute: '2-digit' });
+        copyBooking.telephone = this.state.tel;
+        copyBooking.special = this.state.specialreqs;
+        
         fetch('/api/book', {
             method: 'post',
             body: JSON.stringify(copyBooking)

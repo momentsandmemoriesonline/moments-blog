@@ -16,6 +16,16 @@ const bookedSlotConfig = {
     maxResults: 50,
     singleEvents: true,
     orderBy: 'startTime',
-  }
+}
 
-module.exports = {bookableSlotConfig, bookedSlotConfig}
+const emailConfig = {
+  user: process.env.user,
+  pass: process.env.pass,
+  fromEmail: process.env.fromemail,
+  ccEmail: process.env.ccemail,
+  accountNo: process.env.accountNo,
+  sortCode: process.env.sortCode,
+  deposit: process.env.deposit
+}
+
+module.exports = {bookableSlotConfig, bookedSlotConfig, emailConfig}

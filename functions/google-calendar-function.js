@@ -52,26 +52,20 @@ function getBooked(auth) {
 }
 
 async function book(auth, bookingEvent){
-  console.log("trying to booking")
   return new Promise((resolve, reject) => {
     const calendar = google.calendar({version: 'v3', auth});
-    console.log("getting ready to insert")
     const conf = {
       auth: auth,
       calendarId: bookedSlotConfig.calendarId,
       resource: bookingEvent,
     };
-    console.log(auth)
     calendar.events.insert(conf, function(err, res) {
-      console.log("Made it here")
       if (err) {
         console.log('There was an error contacting the Calendar service: ' + err);
         reject(err);
       }
-      console.log("CREATED")      
       resolve("created");
     });
-    console.log("HOW'D WE GET HERE THEN")
 
   })
   .catch(err => {
